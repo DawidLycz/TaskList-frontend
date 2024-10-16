@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from './axios.js';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Register() {
@@ -9,6 +10,7 @@ function Register() {
   const [serverResponse, setServerResponse] = useState('');
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function verifyPassword() {
     if (username === '') {
@@ -50,9 +52,11 @@ function Register() {
     try {
       const response = await axios.post('api/register/', { username, password });
       setServerResponse('Registration successful!');
-      setRegisterSuccess(true);
+      // setRegisterSuccess(true);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
+      navigate('/');
+      window.location.reload(false)
     } catch (error) {
       if (error.response) {
         setServerResponse(error.response.data.error || 'An error occurred during registration.');
@@ -64,15 +68,11 @@ function Register() {
     }
   }
 
-  function homepage() {
-    window.location.href = '/';
-  }
-
   if (registerSuccess) {
     return (
       <div className='register-box'>
         <h1>Registration Successful</h1>
-        <button onClick={homepage}>HOMEPAGE</button>
+        <Link to='/'><button className='register-box-button'>HOMEPAGE</button></Link>
       </div>
     );
   }
@@ -96,7 +96,7 @@ function Register() {
           }}>
         </input>
         <p>{serverResponse}</p>
-        <button onClick={handleSubmit} disabled={loading}>
+        <button className='register-box-button' onClick={handleSubmit} disabled={loading}>
           {loading ? 'Registering...' : 'Register'}
         </button>
         <Link to="/login"><span>Already have account?</span></Link>
