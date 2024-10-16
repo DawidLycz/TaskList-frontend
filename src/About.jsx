@@ -13,7 +13,7 @@ function About() {
       <h2 className='about-page-title'>What is the purpose of Task Hub?</h2>
       <p className='about-page-text'>Task Hub is project that has been created on training purposes. Main goal was to learn React.</p>
       <h2 className='about-page-title'>Who made it?</h2>
-      <p className='about-page-text'>Well, i did ;) here is my github: <a href="https://github.com/DawidLycz/TaskList">https://github.com/DawidLycz/TaskList</a></p>
+      <p className='about-page-text'>Well, i did ;) here is my github: <a href="https://github.com/DawidLycz/">https://github.com/DawidLycz/</a></p>
 
     </>
   );

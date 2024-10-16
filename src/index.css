@@ -162,11 +162,18 @@ body {
 
 .list-container {
     display: flex;
+<<<<<<< HEAD
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     gap: 10px;
     margin-bottom: 10%;
+=======
+    flex-wrap: wrap; /* Umożliwia zawijanie elementów */
+    align-items: flex-start; /* Ustawia wszystkie elementy przy górnej krawędzi */
+    justify-content: center; /* Wyśrodkowuje elementy w poziomie */
+    gap: 10px; /* Dodaje odstępy między elementami */
+>>>>>>> 96ee3ef5888a265ef1ea01f6478513c9c3002465
 }
 
 .task-list-mini {
